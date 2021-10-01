@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <h2>Inicio</h2>
-        <Card/>
+        <Card :pessoas="pessoasLista"/>
     </v-container>
 </template>
 
@@ -13,16 +13,15 @@ export default {
         Card
     },
     data(){
-    return{
-      pessoasLista: []
-    }
-  },
+        return{
+            pessoasLista: []
+        }
+    },
     created(){
         fetch('https://randomuser.me/api/?page=1&results=25')
         .then(response => response.json())
         .then(json => {
-        this.pessoasLista = json.results
-        console.log(this.pessoasLista)
+            this.pessoasLista = json.results
         })
     }
 }

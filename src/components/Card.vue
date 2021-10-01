@@ -42,5 +42,11 @@
 <script>
 export default {
     name: 'Card',
+    props: {
+    pessoas: {
+      type: Array,
+      required: true
+    }
+  }
 }
 </script>
