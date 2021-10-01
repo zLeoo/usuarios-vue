@@ -5,28 +5,31 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
+    <Card />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import Card from './components/Card.vue'
+export default {
+  name: 'App',
+  components:{
+    Card
+  },
+  data(){
+    return{
+      pessoasLista: []
     }
+  },
+  created(){
+    fetch('https://randomuser.me/api/?page=1&results=25')
+    .then(response => response.json())
+    .then(json => {
+      this.pessoasLista = json.results
+      console.log(this.pessoasLista)
+    })
   }
 }
+</script>
+<style scoped>
 </style>
