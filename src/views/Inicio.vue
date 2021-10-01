@@ -1,14 +1,17 @@
 <template>
-    <v-container class="left">
-        <v-responsive max-width="460">
+    <v-container>
+        
+        <v-responsive max-width="360">
           <v-text-field
-            dense
+            denses
             rounded
-            solo-inverted
-          ></v-text-field>
+            solo-inverted      
+          >
+          </v-text-field>
         </v-responsive>
+
         <Card/>
-        <Card :pessoas="pessoasLista"/>
+
     </v-container>
 </template>
 
@@ -17,6 +20,7 @@
 import Card from '../components/Card.vue'
 
 export default {
+  components: { Card },
     name: 'Inicio',
 
     computed: {
@@ -25,7 +29,7 @@ export default {
 
     data() {
         return {
-            DadosPessoais: []
+            pessoasLista: [],
         }
     },
 

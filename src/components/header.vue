@@ -5,7 +5,7 @@
 
       <v-spacer></v-spacer>
 
-      <DarkModeSwitch @switched="onSwitched" :initialState="isDarkModeEnabled" />
+      <DarkModeSwitch @switched="onSwitched" :initialState="isDarkModeEnabled"/>
 
     </v-app-bar>
 </template>
@@ -16,9 +16,10 @@
     
     export default {
     name: 'Header',
+
     data () {
         return {
-            isDarkModeEnabled: false
+            isDarkModeEnabled: false,
             }
         },
 		components: {
@@ -28,6 +29,6 @@
 			onSwitched: function (isSwitched) {
 				console.log('dark mode is enabled :', isSwitched);
 			}
-		}
+		},
 }
 </script>
