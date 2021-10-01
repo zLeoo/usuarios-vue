@@ -18,7 +18,7 @@
     name: 'Header',
     data () {
         return {
-            isDarkModeEnabled: true
+            isDarkModeEnabled: false
             }
         },
 		components: {
