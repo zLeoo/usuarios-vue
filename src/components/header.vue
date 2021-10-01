@@ -1,21 +1,33 @@
 <template>
-    <v-app-bar
-      app
-      shrink-on-scroll
-    >
+    <v-app-bar app>
 
       <v-toolbar-title>Random Users</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      <DarkModeSwitch @switched="onSwitched" :initialState="isDarkModeEnabled" />
+
     </v-app-bar>
 </template>
 
 <script>
-export default {
+    import DarkModeSwitch from 'vue-dark-mode-switch'
+    import 'vue-dark-mode-switch/dist/vue-dark-mode-switch.css'
+    
+    export default {
     name: 'Header',
+    data () {
+        return {
+            isDarkModeEnabled: true
+            }
+        },
+		components: {
+			DarkModeSwitch
+		},
+		methods: {
+			onSwitched: function (isSwitched) {
+				console.log('dark mode is enabled :', isSwitched);
+			}
+		}
 }
 </script>
